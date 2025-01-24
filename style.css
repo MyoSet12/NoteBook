@@ -1,0 +1,15 @@
+body {
+    background-image: url(Blueball.PNG);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.acquaintance-table {
+    font-size: 20px;
+    width: 800px;
+    height: 200px;
+    background-color: black;
+}
+.acquaintance-table th, .acquaintance-table td {
+    background-color: white;
+    text-align: center;
+}

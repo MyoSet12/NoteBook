@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Note Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2><u>List Of Acquaintances</u></h2>
+    <table class="acquaintance-table" id="editable-table">
+        <tr>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Cell Phone</th>
+            <th>Short Comment</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>10.2.2000</td>
+            <td>Yangon</td>
+            <td>+79939731002</td>
+            <td>+95977709387</td>
+            <td>He is a programmer.</td>
+        </tr>
+        <tr>
+            <td>Anna</td>
+            <td>11.9.2001</td>
+            <td>Mandalay</td>
+            <td>+79932864922</td>
+            <td>+9598581554</td>
+            <td>She is a doctor.</td>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>07.01.1999</td>
+            <td>Taunggyi</td>
+            <td>+79934628571</td>
+            <td>+959691749392</td>
+            <td>He is an engineer.</td>
+        </tr>
+        <tr>
+            <td>Mike</td>
+            <td>13.09.2000</td>
+            <td>Hinthada</td>
+            <td>+79954200142</td>
+            <td>+959676043432</td>
+            <td>He is a teacher.</td>
+        </tr>
+    </table>
+    <br>
+    <button style="font-size: large;" id="edit-button">Edit</button>
+
+    <script>
+        const table = document.getElementById("editable-table");
+        const button = document.getElementById("edit-button");
+
+        button.addEventListener("click", () => {
+            const isEditing = button.textContent === "Save";
+            const cells = table.querySelectorAll("td");
+
+            if (isEditing) {
+                cells.forEach(cell => {
+                    if (cell.querySelector("input")) {
+                        const input = cell.querySelector("input");
+                        cell.textContent = input.value;
+                    }
+                });
+                button.textContent = "Edit";
+            } else {
+                cells.forEach(cell => {
+                    const currentText = cell.textContent;
+                    cell.innerHTML = `<input type="text" value="${currentText}" />`;
+                });
+                button.textContent = "Save";
+            }
+        });
+    </script>
+
+    <h2><u>Daily Plan</u></h2>
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('test', 'I prepared for the examination. There is an exam tomorrow!')">1.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="test"></textarea>
+
+    <script>
+        function updateDailyPlan(id, text) {
+            document.getElementById(id).value = text;
+        }
+    </script>
+    <br>
+    <br>
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('hehe', 'The exam was well taken. But I didn\'t get six points!')">2.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="hehe"></textarea><br>
+    <br>
+
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('hhe', 'Today, my friends and I went to Burger King. We bought shoes on the way. 4000 rubles spent.')">3.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="hhe"></textarea><br>
+    <br>
+
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('he', 'The weather is terrible today! I\'ll watch TV in the bedroom.')">4.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="he"></textarea><br>
+    <br>
+
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('hen', 'Two days before Peter\'s birthday. I have to shop tomorrow.')">5.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="hen"></textarea><br>
+    <br>
+
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('het', 'I bought a table tennis bat for my birthday present.')">6.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="het"></textarea><br>
+    <br>
+
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('heo', 'Today is Peter\'s Birthday! All our friends got together and had a good time at Peter\'s house.')">7.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="heo"></textarea><br>
+    <br>
+
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('huu', 'I skied in the woods in front of the apartment with Mike and John.')">8.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="huu"></textarea><br>
+    <br>
+
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('yyy', 'Today I went to the market and bought a few things I wanted to eat. 2000 rubles spent.')">9.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="yyy"></textarea><br>
+    <br>
+
+    <button style="background-color: rgb(43, 189, 23);color:rgb(10, 4, 114);border: radius 30px;padding: 7px;" onclick="updateDailyPlan('h', 'It\'s the day I have to go to the library. I met Anna at the library in the evening.')">10.1.2025</button>
+    <textarea style="width: 550px;font-style:normal;font-size: large;" id="h"></textarea><br>
+    <br>
+
+    <h2><u>Reminders</u></h2>
+    <button id="remindMeBtn">
+        <img id="buttonImage" src="bell2.PNG" width="50" />
+    </button>
+    <div id="outputBox"></div>
+
+    <script>
+        const outputs = [
+            "Today is Peter's Birthday!",
+            "Yesterday was Peter's Birthday!"
+        ];
+
+        document.getElementById('remindMeBtn').addEventListener('click', function() {
+            document.getElementById('buttonImage').src = 'bell1.png';
+            const randomIndex = Math.floor(Math.random() * outputs.length);
+            document.getElementById('outputBox').innerText = outputs[randomIndex];
+        });
+    </script>
+
+    <h2><u>Search Box</u></h2>
+    <label style="font-size: large;" for="inputBox">Acquaintances:</label><br>
+    <input type="text" id="inputBox" oninput="updateOutput()"><br><br>
+    <label style="font-size: large;" for="utputBox">Informations:</label><br>
+    <input type="text" id="utputBox" readonly>
+    <style>
+        #utputBox{ text-align:left;
+            width: 600px;
+            font-size: large;
+        }
+      </style>
+      <style>
+        #inputBox{ text-align:left;
+            width: 100px;
+            font-size: large;
+        }
+      </style>
+
+    <script>
+        function updateOutput() {
+            const inputText = document.getElementById("inputBox").value;
+            const outputBox = document.getElementById("utputBox");
+            switch(inputText) {
+                case "John":
+                    outputBox.value = "10.2.2000/Yangon/+79939731002/+95977709387/He is a programmer.";
+                    break;
+                case "Anna":
+                    outputBox.value = "11.9.2001/Mandalay/+79932864922/+9598581554/She is a doctor.";
+                    break;
+                case "Peter":
+                    outputBox.value = "07.01.1999/Taunggyi/+79934628571/+959691749392/He is an engineer.";
+                    break;
+                case "Mike":
+                    outputBox.value = "13.09.2000/Hinthada/+79954200142/+959676043432/He is a teacher.";
+                    break;
+                default:
+                    outputBox.value = "";
+                    break;
+            }
+        }
+
+        function resetFields() {
+            document.getElementById("inputBox").value = "";
+            document.getElementById("utputBox").value = "";
+        }
+    </script>
+    <br>
+    <br>
+    <button style="font-size: large;" onclick="resetFields()">Reset</button>
+</body>
+</html>
